@@ -53,6 +53,21 @@
   50% { transform: translate(-50%, -48%); }
   100% { transform: translate(-50%, -52%); }
  }
+      /* Apply pulse to big orb */
+.hero-orb {
+  animation: orbPulse 6s ease-in-out infinite;
+}
+
+/* Apply rotation to the dashed circle */
+.hero-connection {
+  animation: rotateRing 16s linear infinite;
+  transform-origin: center;
+}
+
+/* Smooth floating movement for logo */
+.hero-logo {
+  animation: logoFloat 5s ease-in-out infinite;
+}
 
     * {
       box-sizing: border-box;
