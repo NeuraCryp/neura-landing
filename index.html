@@ -32,8 +32,28 @@
   transform: translate(-50%, -50%);
   opacity: 0.95;     /* Keep the neon vibe smooth */
 }
+      /* --- ORB ANIMATIONS --- */
 
-    }
+/* Pulsing glow for outer orb */
+@keyframes orbPulse {
+  0% { box-shadow: 0 0 120px rgba(26, 148, 255, 0.6); }
+  50% { box-shadow: 0 0 170px rgba(26, 148, 255, 0.9); }
+  100% { box-shadow: 0 0 120px rgba(26, 148, 255, 0.6); }
+}
+
+/* Rotating dashed ring */
+@keyframes rotateRing {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Floating logo animation */
+@keyframes logoFloat {
+  0% { transform: translate(-50%, -52%); }
+  50% { transform: translate(-50%, -48%); }
+  100% { transform: translate(-50%, -52%); }
+}
+ }
 
     * {
       box-sizing: border-box;
@@ -664,7 +684,7 @@
           <div class="badge">NEURA TOKEN • LAUNCHING SOON</div>
           <h1 class="hero-title">
             Learn any skill.<br />
-            <span class="hero-highlight">Earn NEURA while you grow.</span>
+            <span class="hero-highlight">Earn $NURA while you grow.</span>
           </h1>
           <p class="hero-sub">
             Neura is an AI-powered learning companion on Solana. Complete short
@@ -693,7 +713,7 @@
             <div class="hero-orb">
              <div class="hero-orb-inner">
               <!-- Insert your logo here -->
-               <img src="logo.png" class="hero-logo" alt="Neura Logo" />
+               <img src="logo_transp.png" class="hero-logo" alt="Neura Logo" />
                 <div class="hero-connection"></div>
                  <div class="hero-token-tag">AI • Learn-to-Earn • SPL</div>
                </div>
