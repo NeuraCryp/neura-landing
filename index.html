@@ -23,6 +23,16 @@
       --radius-md: 14px;
       --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.6);
       --max-width: 1120px;
+      .hero-logo {
+  position: absolute;
+  width: 55%;        /* You can adjust between 45%–65% */
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.95;     /* Keep the neon vibe smooth */
+}
+
     }
 
     * {
@@ -680,14 +690,17 @@
 
         <div class="hero-right">
           <div class="hero-orb">
-            <div class="hero-orb-inner">
-              <div class="hero-connection"></div>
-              <div class="hero-token-tag">AI • Learn-to-Earn • SPL</div>
+            <div class="hero-orb">
+             <div class="hero-orb-inner">
+              <!-- Insert your logo here -->
+               <img src="logo.png" class="hero-logo" alt="Neura Logo" />
+                <div class="hero-connection"></div>
+                 <div class="hero-token-tag">AI • Learn-to-Earn • SPL</div>
+               </div>
+              </div>
+             </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+           </section>
 
     <!-- ABOUT -->
     <section id="about">
