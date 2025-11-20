@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neura – AI-Powered Learning Companion | NEURA Token Launch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Neura is an AI-powered learning companion. Learn any skill, earn NEURA tokens, and join the future of Learn-to-Earn on Solana."
+  />
+  <style>
+    :root {
+      --bg: #050712;
+      --bg-soft: #0b1020;
+      --card: #101629;
+      --primary: #3a7bff;
+      --primary-soft: rgba(58, 123, 255, 0.16);
+      --accent: #a66bff;
+      --text: #f5f7fa;
+      --muted: #9aa4c6;
+      --border: #20263b;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.6);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10163a 0, #050712 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+          to bottom,
+          rgba(5, 7, 18, 0.9),
+          rgba(5, 7, 18, 0.7)
+        );
+      border-bottom: 1px solid rgba(32, 38, 59, 0.7);
+    }
+
+    .nav {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #5edfff, #0460ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 1.05rem;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.18s ease-out;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out, border-color 0.12s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 18px 40px rgba(19, 85, 255, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 52px rgba(19, 85, 255, 0.7);
+    }
+
+    .btn-outline {
+      border-color: rgba(154, 164, 198, 0.6);
+      background: rgba(11, 16, 32, 0.8);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      background: rgba(12, 20, 48, 0.95);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(63, 72, 115, 0.8);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.75rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(10, 190, 255, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      font-size: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3.1vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(135deg, #5edfff, #a66bff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 1.4rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.3rem 0 0.6rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-right {
+      position: relative;
+      min-height: 260px;
+    }
+
+    .hero-orb {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #5edfff, #0352ff 35%, #030712 75%);
+      box-shadow: 0 0 120px rgba(26, 148, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-orb-inner {
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      border: 4px solid rgba(212, 245, 255, 0.9);
+      position: relative;
+    }
+
+    .hero-connection {
+      position: absolute;
+      inset: 30px;
+      border-radius: 999px;
+      border: 1px dashed rgba(212, 245, 255, 0.45);
+    }
+
+    .hero-token-tag {
+      position: absolute;
+      right: -18px;
+      bottom: 18px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(8, 47, 73, 0.9);
+      border: 1px solid rgba(125, 211, 252, 0.8);
+      color: #e0f2fe;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+    }
+
+    .section-lead {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      background: var(--primary-soft);
+      color: #bfdbfe;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .bullet-list li {
+      display: flex;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .bullet-dot {
+      margin-top: 0.3rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* Tokenomics */
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .tokenomics-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .tokenomics-table th,
+    .tokenomics-table td {
+      padding: 0.55rem 0.35rem;
+      text-align: left;
+    }
+
+    .tokenomics-table th {
+      color: var(--muted);
+      font-weight: 500;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tokenomics-table tr td {
+      border-bottom: 1px solid rgba(32, 38, 59, 0.6);
+    }
+
+    .pill {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(15, 118, 110, 0.12);
+      color: #a7f3d0;
+      border: 1px solid rgba(45, 212, 191, 0.6);
+    }
+
+    /* Roadmap */
+    .roadmap {
+      margin-top: 0.5rem;
+    }
+
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.1rem;
+      position: relative;
+      padding: 0.9rem 0;
+    }
+
+    .roadmap-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 40px;
+      bottom: -8px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        rgba(59, 130, 246, 0.9),
+        rgba(79, 70, 229, 0.1)
+      );
+    }
+
+    .roadmap-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 4px solid #1d4ed8;
+      background: #eff6ff;
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.9);
+      margin-bottom: 0.6rem;
+    }
+
+    .roadmap-phase {
+      font-size: 0.78rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #93c5fd;
+    }
+
+    .roadmap-content h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .roadmap-content ul {
+      list-style: none;
+      margin-top: 0.25rem;
+    }
+
+    .roadmap-content li {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.16rem;
+    }
+
+    /* FAQ + Footer */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .faq-item h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.8rem 0 2.4rem;
+      border-top: 1px solid rgba(32, 38, 59, 0.7);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col,
+      .tokenomics-grid,
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+        margin-bottom: 1.8rem;
+      }
+
+      .hero-orb {
+        width: 260px;
+        height: 260px;
+      }
+
+      .hero-orb-inner {
+        width: 160px;
+        height: 160px;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding-bottom: 0.9rem;
+        font-size: 0.9rem;
+      }
+
+      .mobile-menu a {
+        color: var(--muted);
+      }
+
+      .mobile-menu a:hover {
+        color: var(--text);
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo">
+            <!-- Use your real logo here -->
+            <img src="PATH_TO_YOUR_LOGO" alt="Neura Logo" />
+          </div>
+          <div>
+            <div class="brand-title">Neura</div>
+            <div class="brand-sub">AI-Powered Learning Companion</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#how">How It Works</a>
+          <a href="#tokenomics">Tokenomics</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#community">Community</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn btn-outline" href="#community">Join Community</a>
+          <a class="btn btn-primary" href="YOUR_DEX_LINK" target="_blank" rel="noreferrer">Buy NEURA</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#how">How It Works</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#community">Community</a>
+        <a href="YOUR_DEX_LINK" target="_blank" rel="noreferrer">Buy NEURA</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">NEURA TOKEN • LAUNCHING NOW</div>
+          <h1 class="hero-title">
+            Learn any skill.<br />
+            <span class="hero-highlight">Earn NEURA while you grow.</span>
+          </h1>
+          <p class="hero-sub">
+            Neura is an AI-powered learning companion on Solana. Complete short
+            lessons, quizzes, and micro-tasks – and earn NEURA tokens for your
+            progress.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="YOUR_DEX_LINK" target="_blank" rel="noreferrer">
+              Buy NEURA on DEX
+            </a>
+            <a class="btn btn-outline" href="#litepaper">
+              Read Litepaper
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span><strong>Chain:</strong> Solana</span>
+            <span><strong>Ticker:</strong> NEURA</span>
+            <span><strong>Contract:</strong> <span style="font-family: monospace;">CONTRACT_ADDRESS_HERE</span></span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-orb">
+            <div class="hero-orb-inner">
+              <div class="hero-connection"></div>
+              <div class="hero-token-tag">AI • Learn-to-Earn • SPL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">About Neura</div>
+          <h2 class="section-title">AI-powered learning, built for Web3.</h2>
+          <p class="section-lead">
+            Neura combines personalized AI lessons with token incentives. Instead
+            of paying to learn, users earn NEURA while building real skills –
+            from languages and coding to finance and Web3.
+          </p>
+        </div>
+        <div class="two-col">
+          <div class="card">
+            <div class="chip">Problem</div>
+            <h3>Learning is broken.</h3>
+            <p>
+              Online education is noisy, unstructured, and unmotivating. Platforms
+              capture value, while learners get no tangible rewards for the time
+              they invest.
+            </p>
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Low engagement & retention</li>
+              <li><span class="bullet-dot"></span>No real incentives</li>
+              <li><span class="bullet-dot"></span>One-size-fits-all content</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="chip">Solution</div>
+            <h3>Learn-to-Earn with AI.</h3>
+            <p>
+              Neura turns every lesson into an on-chain reward opportunity. The
+              more you learn, the more NEURA you earn – and the smarter the AI
+              becomes with community feedback.
+            </p>
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>AI-generated micro-lessons</li>
+              <li><span class="bullet-dot"></span>Rewarding quizzes & streaks</li>
+              <li><span class="bullet-dot"></span>Community-trained AI model</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">How It Works</div>
+          <h2 class="section-title">Three steps to start earning by learning.</h2>
+        </div>
+        <div class="two-col">
+          <div class="card">
+            <div class="chip">Step 1</div>
+            <h3>Connect wallet & choose a path.</h3>
+            <p>
+              Connect your Solana wallet, pick a skill path (e.g. English A1,
+              Solana 101, Python Basics) and get personalized learning
+              recommendations.
+            </p>
+          </div>
+          <div class="card">
+            <div class="chip">Step 2</div>
+            <h3>Complete AI lessons & quizzes.</h3>
+            <p>
+              Neura generates short lessons and interactive quizzes tailored to
+              your level. Sessions take 1–4 minutes and fit into your daily
+              routine.
+            </p>
+          </div>
+          <div class="card">
+            <div class="chip">Step 3</div>
+            <h3>Earn NEURA for progress.</h3>
+            <p>
+              Every completed task, streak, and path milestone earns NEURA
+              rewards. Future features will let you redeem tokens for premium AI
+              tools and certifications.
+            </p>
+          </div>
+          <div class="card">
+            <div class="chip">Community</div>
+            <h3>Help train the AI.</h3>
+            <p>
+              Vote on answer quality, flag issues, and suggest new paths. The
+              community helps train Neura’s AI and is rewarded for meaningful
+              contributions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKEN UTILITY & TOKENOMICS -->
+    <section id="tokenomics">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">NEURA Token</div>
+          <h2 class="section-title">Utility & tokenomics designed for learners.</h2>
+        </div>
+        <div class="tokenomics-grid">
+          <div class="card">
+            <div class="chip">Utility</div>
+            <h3>What NEURA is used for:</h3>
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Rewards for lessons, quizzes, streaks & contributions</li>
+              <li><span class="bullet-dot"></span>Unlocking premium AI tools & advanced skill paths</li>
+              <li><span class="bullet-dot"></span>Governance-lite voting on new learning tracks</li>
+              <li><span class="bullet-dot"></span>Tipping & revenue share for content creators</li>
+            </ul>
+            <p style="margin-top:0.8rem;font-size:0.86rem;color:var(--muted);">
+              NEURA is a fixed-supply SPL token on Solana, powering the Neura
+              Learn-to-Earn ecosystem.
+            </p>
+          </div>
+          <div class="card">
+            <div class="chip">Tokenomics</div>
+            <h3>Distribution</h3>
+            <table class="tokenomics-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Learn &amp; Earn Rewards</td>
+                  <td>50%</td>
+                </tr>
+                <tr>
+                  <td>Development &amp; AI Infrastructure</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>Liquidity &amp; Listings</td>
+                  <td>15%</td>
+                </tr>
+                <tr>
+                  <td>Team (Vested)</td>
+                  <td>10%</td>
+                </tr>
+                <tr>
+                  <td>Partnerships &amp; Grants</td>
+                  <td>5%</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top:0.75rem;font-size:0.86rem;color:var(--muted);">
+              Total Supply: <strong>500,000,000 NEURA</strong> (fixed).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Roadmap</div>
+          <h2 class="section-title">Building Neura step by step.</h2>
+        </div>
+        <div class="card roadmap">
+          <div class="roadmap-item">
+            <div>
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-phase">Phase 1</div>
+            </div>
+            <div class="roadmap-content">
+              <h3>Foundation & Token Launch</h3>
+              <ul>
+                <li>Branding, whitepaper, litepaper</li>
+                <li>Token launch on Solana</li>
+                <li>Community channels & early supporters</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div>
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-phase">Phase 2</div>
+            </div>
+            <div class="roadmap-content">
+              <h3>AI Learning Core</h3>
+              <ul>
+                <li>AI-generated micro-lessons & quizzes</li>
+                <li>Basic dashboard & streak system</li>
+                <li>Learn-to-Earn rewards live</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div>
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-phase">Phase 3</div>
+            </div>
+            <div class="roadmap-content">
+              <h3>Skill Paths & Creators</h3>
+              <ul>
+                <li>Structured learning paths</li>
+                <li>Creator tools & revenue share</li>
+                <li>AI flashcards & summaries</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div>
+              <div class="roadmap-dot"></div>
+              <div class="roadmap-phase">Phase 4+</div>
+            </div>
+            <div class="roadmap-content">
+              <h3>Community AI & Expansion</h3>
+              <ul>
+                <li>Community training feedback loops</li>
+                <li>Mobile apps & partnerships</li>
+                <li>Global multi-language Learn-to-Earn</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAq & LITEPAPER CTA -->
+    <section id="litepaper">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Docs</div>
+          <h2 class="section-title">Litepaper & quick answers.</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item card">
+            <h3>Where can I read the litepaper?</h3>
+            <p>
+              You can download the latest NEURA Litepaper as a PDF here:
+              <br />
+              <a href="PATH_TO_LITEPAPER_PDF" style="color:#93c5fd;text-decoration:underline;">
+                Download NEURA Litepaper
+              </a>
+            </p>
+          </div>
+          <div class="faq-item card">
+            <h3>Is NEURA live on mainnet?</h3>
+            <p>
+              Yes. NEURA is deployed as an SPL token on the Solana mainnet. Always
+              verify the official contract address from our official channels
+              before trading.
+            </p>
+          </div>
+          <div class="faq-item card">
+            <h3>How do I earn NEURA?</h3>
+            <p>
+              After launch of the Neura app, you’ll earn NEURA by completing
+              lessons, quizzes, maintaining streaks, and contributing feedback to
+              improve the AI.
+            </p>
+          </div>
+          <div class="faq-item card">
+            <h3>What’s the long-term vision?</h3>
+            <p>
+              Neura aims to become a global Learn-to-Earn layer, connecting
+              learners, educators, and AI agents in a shared ecosystem where
+              knowledge and value move together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Community</div>
+          <h2 class="section-title">Join the Neura early adopters.</h2>
+          <p class="section-lead">
+            Be part of the first wave shaping the future of AI-powered
+            education. Get updates, early access, and community rewards.
+          </p>
+        </div>
+        <div class="card" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;">
+          <div>
+            <h3 style="margin-bottom:0.3rem;">Connect with us</h3>
+            <p style="font-size:0.9rem;color:var(--muted);">
+              Follow Neura on social and join the discussion.
+            </p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.6rem;">
+            <a class="btn btn-outline" href="YOUR_TELEGRAM_LINK" target="_blank">Telegram</a>
+            <a class="btn btn-outline" href="YOUR_TWITTER_LINK" target="_blank">Twitter / X</a>
+            <a class="btn btn-outline" href="YOUR_DISCORD_LINK" target="_blank">Discord</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Neura Labs. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#litepaper">Litepaper</a>
+        <a href="#community">Community</a>
+        <a href="mailto:hello@neura.app">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // mobile nav toggle
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+  }
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
